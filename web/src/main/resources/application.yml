@@ -1,0 +1,73 @@
+#公共配置
+server:
+  port: 80
+  tomcat:
+    uri-encoding: utf-8
+  servlet:
+    contextpath: /my-film
+#监控配置
+management:
+  port: 8090
+  security:
+    enabled: false
+
+spring:
+  #选择配置环境
+  profiles:
+    active: dev
+
+  #邮件发送配置
+  mail:
+    host: smtp.qq.com
+    username: 2637178586@qq.com
+    password: fpzxwlqimtfbdjjj
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  boot:
+    admin:
+      url: http://localhost:8000
+
+#mybatis
+mybatis:
+  # 实体类扫描
+  type-aliases-package: com.book.entity
+  # 配置映射文件位置
+  mapper-locations: classpath:dao/*.xml
+  configuration:
+    # 开启驼峰匹配
+    map-underscore-to-camel-case: true
+    #缓存
+    cache-enabled: false
+    #事务超时时间
+    default-statement-timeout: 1800
+    #缓存 prepared statement 提高性能
+    default-executor-type: reuse
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+
+#文件上传路径
+file:
+  prefix: D:/bookfile
+
+---
+#开发环境配置
+server:
+  #
+  port: 8090
+spring:
+  profiles: dev
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.111.64.94:3306/gj_book?useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=true
+    username: pant
+    password: panteng
+
+
+
+
