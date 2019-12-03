@@ -74,9 +74,7 @@
         <Logger name="org.springframework" level="INFO"/>
         <Logger name="org.mybatis" level="INFO"/>
 
-        <logger name="com.better.house" level="debug"/>
-
-        <root level="info">
+        <root level="ALL">
             <appender-ref ref="console"/>
             <appender-ref ref="infoFile"/>
             <appender-ref ref="warnFile"/>
