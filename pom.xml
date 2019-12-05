@@ -27,7 +27,12 @@
 		<start-class>com.paramount.web.FilmApplication</start-class>
 		<mysql.version>5.1.46</mysql.version>
 		<mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
+		<elasticsearch-rest-high-level-client.version>7.1.1</elasticsearch-rest-high-level-client.version>
+		<elasticsearch.version>7.1.1</elasticsearch.version>
+		<elasticsearch-rest-client.version>7.1.1</elasticsearch-rest-client.version>
+		<commons-lang3.version>3.0</commons-lang3.version>
 	</properties>
+
 
 	<dependencyManagement>
 		<dependencies>
@@ -35,6 +40,31 @@
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
 				<version>${mybatis-plus-boot-starter.version}</version>
+			</dependency>
+
+			<!--注意：如果使用了parent那么需要在此定义es版本号,因为spring-boot-start-parent中已经定义了es相关依赖的版本号，high-level-client中的部分依赖会被覆盖成低版本的,导出出现莫名其妙的错误-->
+			<dependency>
+				<groupId>org.elasticsearch.client</groupId>
+				<artifactId>elasticsearch-rest-high-level-client</artifactId>
+				<version>${elasticsearch-rest-high-level-client.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.elasticsearch</groupId>
+				<artifactId>elasticsearch</artifactId>
+				<version>${elasticsearch.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.elasticsearch.client</groupId>
+				<artifactId>elasticsearch-rest-client</artifactId>
+				<version>${elasticsearch-rest-client.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

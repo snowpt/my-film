@@ -14,12 +14,6 @@ import java.util.List;
  */
 public interface GjFilmService extends IService<Movie>{
     /**
-     * 初始导入电影数据
-     * @return
-     */
-    long initData();
-
-    /**
      * 分页查询电影数据
      * @param page
      * @return

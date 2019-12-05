@@ -2,7 +2,6 @@ package com.paramount.web.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.paramount.common.dto.base.RestMessage;
 import com.paramount.entity.Movie;
 import com.paramount.service.GjFilmService;
 import com.wordnik.swagger.annotations.Api;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.MessageFormat;
 import java.util.List;
 
 /**
@@ -28,13 +26,6 @@ public class GjFilmController {
 
     @Autowired
     private GjFilmService gjFilmService;
-
-    @ApiOperation(value="初始导入电影数据",notes="初始导入电影数据")
-    @PostMapping("/initData")
-    public RestMessage<String> initData() throws Exception{
-        long ins = gjFilmService.initData();
-        return RestMessage.newInstance(true, "初始导入电影数据", MessageFormat.format("导入电影数据:{0}",ins));
-    }
 
     @ApiOperation(value="分页查询电影数据",notes="分页查询电影数据")
     @PostMapping("/pageQryMovie")

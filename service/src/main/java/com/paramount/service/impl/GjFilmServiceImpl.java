@@ -23,11 +23,6 @@ public class GjFilmServiceImpl extends ServiceImpl<GjMovieMapper,Movie> implemen
     private GjMovieMapper gjMovieMapper;
 
     @Override
-    public long initData() {
-        return 0;
-    }
-
-    @Override
     public IPage<Movie> pageQryMovie(Page page) {
 //        Page<Movie> pages = new Page<>(1, 5);
 //        IPage<Movie> userIPage = gjMovieMapper.selectPage(pages, new QueryWrapper<>());
