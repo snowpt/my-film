@@ -2,13 +2,10 @@ package com.paramount.web.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.paramount.common.dto.base.PageQueryResult;
 import com.paramount.common.dto.base.RestMessage;
 import com.paramount.dto.EsMovieQryDto;
 import com.paramount.entity.EsMovie;
-import com.paramount.entity.Movie;
 import com.paramount.service.GjEsService;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;

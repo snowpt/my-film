@@ -29,16 +29,6 @@ public class EsMovie {
     private Double doubanScore;
 
     /**
-     * 主　　演
-     */
-    private String starring;
-
-    /**
-     * 标　　签
-     */
-    private String label;
-
-    /**
      * 产　　地
      */
     private String origin;
@@ -52,6 +42,11 @@ public class EsMovie {
      * 上映日期
      */
     private String releaseDate;
+
+    /**
+     * 剧照
+     */
+    private String stillUrl;
 
     public Integer getId() {
         return id;
@@ -81,22 +76,6 @@ public class EsMovie {
         this.doubanScore = doubanScore;
     }
 
-    public String getStarring() {
-        return starring;
-    }
-
-    public void setStarring(String starring) {
-        this.starring = starring;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
     public String getOrigin() {
         return origin;
     }
@@ -119,5 +98,13 @@ public class EsMovie {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public String getStillUrl() {
+        return stillUrl;
+    }
+
+    public void setStillUrl(String stillUrl) {
+        this.stillUrl = stillUrl;
     }
 }

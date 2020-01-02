@@ -59,7 +59,6 @@ public class GjEsServiceImpl implements GjEsService {
     private RestHighLevelClient restHighLevelClient;
 
     private static final String INDEX_NAME = "gj_movie";
-    private static final String TYPE = "doc";
 
     @Override
     public void createIndex(String idxName, String idxSQL) {
@@ -105,8 +104,7 @@ public class GjEsServiceImpl implements GjEsService {
             } else {
                 esMovie.setDoubanScore(0d);
             }
-            esMovie.setStarring(t.getStarring());
-            esMovie.setLabel(t.getLabel());
+            esMovie.setStillUrl(t.getStillUrl());
             esMovie.setOrigin(t.getOrigin());
             esMovie.setCategory(t.getCategory());
             esMovie.setReleaseDate(t.getReleaseDate());
@@ -190,8 +188,7 @@ public class GjEsServiceImpl implements GjEsService {
             } else {
                 esMovie.setDoubanScore(0d);
             }
-            esMovie.setStarring(t.getStarring());
-            esMovie.setLabel(t.getLabel());
+            esMovie.setStillUrl(t.getStillUrl());
             esMovie.setOrigin(t.getOrigin());
             esMovie.setCategory(t.getCategory());
             esMovie.setReleaseDate(t.getReleaseDate());
@@ -227,7 +224,7 @@ public class GjEsServiceImpl implements GjEsService {
         //搜索条件
         //根据关键字搜索 多条件
         if(StringUtils.isNotEmpty(qryDto.getKeyword())){
-            MultiMatchQueryBuilder multiMatchQueryBuilder = QueryBuilders.multiMatchQuery(qryDto.getKeyword(), "name", "label", "starring")
+            MultiMatchQueryBuilder multiMatchQueryBuilder = QueryBuilders.multiMatchQuery(qryDto.getKeyword(), "name")
                     .minimumShouldMatch("70%")
                     .field("name", 10);
             boolQueryBuilder.must(multiMatchQueryBuilder);
@@ -253,8 +250,8 @@ public class GjEsServiceImpl implements GjEsService {
         }
 
         //设置boolQueryBuilder到searchSourceBuilder 并设置排序
-        searchSourceBuilder.query(boolQueryBuilder)
-               .sort("doubanScore",qryDto.getDoubanScoreSort() == 0? SortOrder.DESC:SortOrder.ASC);
+        searchSourceBuilder.query(boolQueryBuilder);
+//               .sort("doubanScore",qryDto.getDoubanScoreSort() == 0? SortOrder.DESC:SortOrder.ASC);
 //                                                    .sort("releaseDate",qryDto.getDoubanScoreSort() == 0?SortOrder.DESC:SortOrder.ASC);
 //        //设置分页参数
         if(curPage<=0){
@@ -274,8 +271,6 @@ public class GjEsServiceImpl implements GjEsService {
         highlightBuilder.postTags("</font>");
         //设置高亮字段
         highlightBuilder.fields().add(new HighlightBuilder.Field("name"));
-        highlightBuilder.fields().add(new HighlightBuilder.Field("label"));
-        highlightBuilder.fields().add(new HighlightBuilder.Field("starring"));
         searchSourceBuilder.highlighter(highlightBuilder);
 
         searchRequest.source(searchSourceBuilder);
@@ -302,14 +297,14 @@ public class GjEsServiceImpl implements GjEsService {
                     if(highlightFieldName!=null){
                         esMovie.setName(getHighlight(highlightFieldName));
                     }
-                    HighlightField highlightFieldNamelabel = highlightFields.get("label");
-                    if(highlightFieldNamelabel!=null){
-                        esMovie.setLabel(getHighlight(highlightFieldNamelabel));
-                    }
-                    HighlightField highlightFieldNameStarring= highlightFields.get("starring");
-                    if(highlightFieldNameStarring!=null){
-                        esMovie.setStarring(getHighlight(highlightFieldNameStarring));
-                    }
+//                    HighlightField highlightFieldNamelabel = highlightFields.get("label");
+//                    if(highlightFieldNamelabel!=null){
+//                        esMovie.setLabel(getHighlight(highlightFieldNamelabel));
+//                    }
+//                    HighlightField highlightFieldNameStarring= highlightFields.get("starring");
+//                    if(highlightFieldNameStarring!=null){
+//                        esMovie.setStarring(getHighlight(highlightFieldNameStarring));
+//                    }
                 }
                 list.add(esMovie);
             }
