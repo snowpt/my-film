@@ -2,6 +2,8 @@ package com.paramount.web.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.paramount.common.dto.base.RestMessage;
+import com.paramount.dto.SwipersDto;
 import com.paramount.entity.Movie;
 import com.paramount.service.GjFilmService;
 import com.wordnik.swagger.annotations.Api;
@@ -39,5 +41,12 @@ public class GjFilmController {
     public List<Movie> qryByMovie(@RequestBody Movie movie) throws Exception{
         List<Movie> pageData =  gjFilmService.qryByMovie(movie);
         return pageData;
+    }
+
+    @ApiOperation(value="查询轮播图数据",notes="查询轮播图数据")
+    @PostMapping("/qrySwipers")
+    public RestMessage<List<SwipersDto>> qrySwipers() throws Exception{
+        List<SwipersDto> pageData =  gjFilmService.qrySwipers();
+        return RestMessage.newInstance(true,"成功",pageData);
     }
 }

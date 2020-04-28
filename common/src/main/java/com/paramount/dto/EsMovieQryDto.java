@@ -23,7 +23,7 @@ public class EsMovieQryDto {
     /**
      * 豆瓣评分
      */
-    private List<Double> doubanScore = Collections.emptyList();;
+    private List<Double> doubanScore = Collections.emptyList();
 
     /**
      * 豆瓣评分排序(默认0,倒序;1,正序)

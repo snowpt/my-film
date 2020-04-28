@@ -1,5 +1,6 @@
 package com.paramount.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -21,6 +22,7 @@ public class Movie {
     /**
      * 发布时间
      */
+    @TableField(value = "release_date")
     private String releaseDate;
 
     /**
