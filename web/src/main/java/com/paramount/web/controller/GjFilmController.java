@@ -31,9 +31,9 @@ public class GjFilmController {
 
     @ApiOperation(value="分页查询电影数据",notes="分页查询电影数据")
     @PostMapping("/pageQryMovie")
-    public IPage<Movie> pageQryMovie(@RequestBody Page page) throws Exception{
+    public RestMessage<IPage<Movie>> pageQryMovie(@RequestBody Page page) throws Exception{
         IPage<Movie> pageData =  gjFilmService.pageQryMovie(page);
-        return pageData;
+        return RestMessage.newInstance(true,"成功",pageData);
     }
 
     @ApiOperation(value="查询电影数据",notes="查询电影数据")

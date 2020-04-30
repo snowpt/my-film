@@ -56,7 +56,6 @@ mybatis-plus:
 ---
 #开发环境配置
 server:
-  #
   port: 8090
 spring:
   profiles: dev
