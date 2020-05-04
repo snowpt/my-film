@@ -63,8 +63,6 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://47.111.64.94:3306/gj_movie?useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=true
-    username: root
-    password: panteng
     initialSize: 1
     minIdle: 3
     maxActive: 20
