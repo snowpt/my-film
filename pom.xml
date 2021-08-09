@@ -28,7 +28,7 @@
 		<mysql.version>5.1.46</mysql.version>
 		<mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
 		<elasticsearch-rest-high-level-client.version>7.1.1</elasticsearch-rest-high-level-client.version>
-		<elasticsearch.version>7.1.1</elasticsearch.version>
+		<elasticsearch.version>7.13.3</elasticsearch.version>
 		<elasticsearch-rest-client.version>7.1.1</elasticsearch-rest-client.version>
 		<commons-lang3.version>3.0</commons-lang3.version>
 	</properties>
